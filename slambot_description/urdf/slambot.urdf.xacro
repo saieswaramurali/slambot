@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<robot name="slambot" xmlns:xacro="https://www.ros.org/wiki/xacro">
+
+    <xacro:property name="wheel_offset" value="0.033"/>
+    <xacro:property name="wheel_radius" value="0.007"/>
+    <xacro:property name="wheel_z_offset" value="${(wheel_offset + wheel_radius)}"/>
+
+    <material name="wood_color">
+        <color rgba="0.76 0.60 0.42 1.0"/>  <!-- Wood-like brown -->
+    </material>
+    <material name="black_color">
+        <color rgba="0.0 0.0 0.0 1.0"/>  <!-- Pure black -->
+    </material>
+
+    <link name="base_link"></link>
+
+    <link name="base">
+        <inertial>
+        <origin xyz="0 0 0.04" rpy="0.0 0.25 0.3" />
+        <mass value="8.2573504e-01"/>
+        <inertia ixx="2.2124416e-02" ixy="-1.2294101e-04" ixz="3.4938785e-04"
+                iyy="2.1193702e-02" iyz="-5.0120904e-05"
+                izz="2.0064271e-02" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://slambot_description/meshes/base.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="wood_color"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://slambot_description/meshes/base.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="wood_color"/>
+
+        </collision>
+
+    </link>
+
+    <link name="left_wheel_front">
+        <inertial>
+        <origin xyz="0 -0.014 0" rpy="0 0 0" />
+        <mass value="0.0530086090966721" />
+        <inertia ixx="1.88176298336665E-05" ixy="-4.8444933029987E-10" ixz="1.88163708851143E-08"
+                iyy="3.11510738647764E-05" iyz="-6.93560663069607E-11"
+                izz="1.8801969558182E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 1.57 0"></origin>
+            <geometry>
+                <mesh filename="package://slambot_description/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black_color"/>
+
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0"></origin>
+            <geometry>
+                <mesh filename="package://slambot_description/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="right_wheel_front">
+        <inertial>
+        <origin xyz="0 -0.014 0" rpy="0 0 0" />
+        <mass value="0.0530086090966721" />
+        <inertia ixx="1.88176298336665E-05" ixy="-4.8444933029987E-10" ixz="1.88163708851143E-08"
+                iyy="3.11510738647764E-05" iyz="-6.93560663069607E-11"
+                izz="1.8801969558182E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 -0 0" rpy="0 1.57 3.14"></origin>
+            <geometry>
+                <mesh filename="package://slambot_description/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black_color"/>
+        </visual>
+        <collision>
+            <origin xyz="0 -0 0" rpy="0 1.57 3.14"></origin>
+            <geometry>
+                <mesh filename="package://slambot_description/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+
+        </collision>
+    </link>
+
+    <link name="left_wheel_rear">
+        <inertial>
+        <origin xyz="0 -0.014 0" rpy="0 0 0" />
+        <mass value="0.0530086090966721" />
+        <inertia ixx="1.88176298336665E-05" ixy="-4.8444933029987E-10" ixz="1.88163708851143E-08"
+                iyy="3.11510738647764E-05" iyz="-6.93560663069607E-11"
+                izz="1.8801969558182E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 1.57 0"></origin>
+            <geometry>
+                <mesh filename="package://slambot_description/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black_color"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0"></origin>
+            <geometry>
+                <mesh filename="package://slambot_description/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="right_wheel_rear">
+        <inertial>
+        <origin xyz="0 -0.014 0" rpy="0 0 0" />
+        <mass value="0.0530086090966721" />
+        <inertia ixx="1.88176298336665E-05" ixy="-4.8444933029987E-10" ixz="1.88163708851143E-08"
+                iyy="3.11510738647764E-05" iyz="-6.93560663069607E-11"
+                izz="1.8801969558182E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 -0 0" rpy="0 1.57 3.14"></origin>
+            <geometry>
+                <mesh filename="package://slambot_description/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black_color"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0"></origin>
+            <geometry>
+                <mesh filename="package://slambot_description/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+
+
+      <gazebo reference="base">
+        <mu1>10</mu1>
+        <mu2>10</mu2>
+        <self_collide>true</self_collide>
+        <fdir1>1 0 0</fdir1>
+        <kp>1000000</kp>
+        <kd>10.0</kd>
+        <maxVel>0.1</maxVel>  
+    </gazebo>
+
+    <gazebo reference="left_wheel_front">
+        <mu1>1000000000000000.0</mu1>
+        <mu2>1000000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="right_wheel_front">
+        <mu1>1000000000000000.0</mu1>
+        <mu2>1000000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+
+      <gazebo reference="left_wheel_rear">
+        <mu1>1000000000000000.0</mu1>
+        <mu2>1000000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+      <gazebo reference="right_wheel_rear">
+        <mu1>1000000000000000.0</mu1>
+        <mu2>1000000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+
+
+
+    <joint name="base_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base"/>
+        <origin xyz="0 0 ${wheel_z_offset + wheel_z_offset}" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="left_wheel_front_joint" type="continuous">
+        <parent link="base"/>
+        <child link="left_wheel_front"/>
+        <origin xyz="-0.135 0.098 -0.033" rpy="0 0 0"></origin>
+        <axis xyz="-1 0 0"/>
+    </joint>
+
+    <joint name="right_wheel_front_joint" type="continuous">
+        <parent link="base"/>
+        <child link="right_wheel_front"/>
+        <origin xyz="0.136 0.098 -0.033" rpy="0 0 0"></origin>
+        <axis xyz="-1 0 0"/>
+    </joint>
+
+    <joint name="left_wheel_rear_joint" type="continuous">
+        <parent link="base"/>
+        <child link="left_wheel_rear"/>
+        <origin xyz="-0.135 -0.103 -0.033" rpy="0 0 0"></origin>
+        <axis xyz="-1 0 0"/>
+    </joint>
+
+    <joint name="right_wheel_rear_joint" type="continuous">
+        <parent link="base"/>
+        <child link="right_wheel_rear"/>
+        <origin xyz="0.136 -0.103 -0.033" rpy="0 0 0"></origin>
+        <axis xyz="-1 0 0"/>
+    </joint>
+
+
+<!--LIDAR LaserScan topic-->
+
+ 
+  <joint name="laser_joint" type="fixed">
+      <parent link="base"/>
+      <child link="laser_frame"/>
+      <origin xyz="0 0.045 0.058" rpy="0 0 0"/>
+    </joint>
+    
+    <link name="laser_frame">
+    <visual>
+        <geometry>
+        <cylinder radius="0.025" length="0.015"/>
+        </geometry>
+        <material name="lidar">
+        <color rgba="0.0 0.0 1.0 1"/>
+        </material>
+    </visual>
+
+    <collision>
+        <geometry>
+        <cylinder radius="0.025" length="0.015"/>
+        </geometry>
+    </collision>
+
+    <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="1e-4" iyy="1e-4" izz="1e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    </link>
+
+    <gazebo reference="laser_frame">
+        <material>Gazebo/Red</material>
+        <sensor name="laser" type="ray">
+            <pose> 0 0 0 0 0 0 </pose>
+            <visualize>true</visualize>
+            <update_rate>50</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.3</min>
+                    <max>10</max>
+                </range>
+            </ray>
+            <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+                <ros>
+                    <argument>~/out:=scan</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>laser_frame</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+<!--control code for the robot-->
+   <gazebo>
+        <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+            <left_joint>left_wheel_rear_joint</left_joint>
+            <right_joint>right_wheel_rear_joint</right_joint>
+  
+            <wheel_separation>0.271</wheel_separation>
+            <wheel_diameter>0.07</wheel_diameter>
+            
+  
+            
+            <max_wheel_torque>200</max_wheel_torque>
+            <max_wheel_acceleration>10.0</max_wheel_acceleration>
+            
+            <command_topic>cmd_vel</command_topic>
+  
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+            
+            <odometry_topic>odom</odometry_topic>
+            
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_link</robot_base_frame>
+  
+        </plugin>
+      </gazebo>
+
+
+</robot>
